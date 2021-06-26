@@ -8,7 +8,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.net.URISyntaxException;
 import java.time.Duration;
+
+import static page.ServiceHelper.getOneTimePassword;
 
 public class SimpleTest {
     WebDriver webDriver;
@@ -20,7 +23,7 @@ public class SimpleTest {
     }
 
     @Test
-    public void testSimpleUsingOneTimePassword() {
+    public void testSimpleUsingOneTimePassword() throws URISyntaxException {
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         webDriver.navigate().to("https://test-engineer.site/test-room/");
         Assertions.assertEquals(webDriver.getTitle(), "Login Page");
@@ -35,7 +38,7 @@ public class SimpleTest {
 
         //One time password field
         webDriver.findElement(By.id("otp-field")).clear();
-        webDriver.findElement(By.id("otp-field")).sendKeys("1234");
+        webDriver.findElement(By.id("otp-field")).sendKeys(getOneTimePassword());
 
         //Submit button
         webDriver.findElement(By.id("login-form-submit")).click();
