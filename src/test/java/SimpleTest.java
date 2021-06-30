@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.net.URISyntaxException;
 import java.time.Duration;
 
-import static page.ServiceHelper.getOneTimePassword;
+import static api.ServiceHelper.getOneTimePassword;
 
 public class SimpleTest {
     WebDriver webDriver;
