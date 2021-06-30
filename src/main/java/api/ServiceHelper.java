@@ -1,4 +1,4 @@
-package page;
+package api;
 
 import org.apache.http.client.utils.URIBuilder;
 import org.json.JSONObject;
